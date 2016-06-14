@@ -83,3 +83,51 @@ makes10(1, 9) → true
 public boolean makes10(int a, int b) {
   return (a == 10 || b == 10 || a + b == 10) ? true : false;
 }
+
+/*
+near_hundred
+Given an int n, return True if it is within 10 of 100 or 200.
+Note: abs(num) computes the absolute value of a number.
+
+near_hundred(93) → True
+near_hundred(90) → True
+near_hundred(89) → False
+*/
+
+public boolean nearHundred(int n) {
+  return (Math.abs(n-100) <= 10 || Math.abs(n-200) <= 10) ? true:false;
+}
+
+
+/*
+posNeg
+Given 2 int values, return true if one is negative and one is positive.
+Except if the parameter "negative" is true,
+then return true only if both are negative.
+
+posNeg(1, -1, false) → true
+posNeg(-1, 1, false) → true
+posNeg(-4, -5, true) → true
+*/
+
+public boolean posNeg(int a, int b, boolean negative) {
+  if ((!negative && a < 0 && b > 0) || (!negative && a > 0 && b < 0))
+  return true;
+  else if (negative && a < 0 && b < 0)
+  return true;
+  else return false;
+}
+//OR
+public boolean posNeg(int a, int b, boolean negative) {
+  return ((!negative && a < 0 && b > 0) || (!negative && a > 0 && b < 0))? true:
+  (negative && a < 0 && b < 0)? true:false;
+}
+//OR
+public boolean posNeg(int a, int b, boolean negative) {
+  if (negative) {
+    return (a < 0 && b < 0);
+  }
+  else {
+    return ((a < 0 && b > 0) || (a > 0 && b < 0));
+  }
+}
